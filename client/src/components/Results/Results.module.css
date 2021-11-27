@@ -2,8 +2,9 @@
   margin: 15px;
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
 }
 
 .results p1 {
-  margin: 20px;
+  margin: 15px;
 }

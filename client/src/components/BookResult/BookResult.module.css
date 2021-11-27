@@ -1,0 +1,37 @@
+.bookResult {
+  margin: 15px;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.bookResult__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookResult__span h4 {
+  margin: 10px 0;
+  text-decoration: underline;
+}
+.bookResult__span p {
+  margin: 10px 0;
+}
+
+.bookResult__spanButton button {
+  margin: 0 3px;
+  box-shadow: 3px 2px 2px grey;
+}
+
+.bookResult__body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.bookResult__body img {
+  height: 250px;
+}
+.bookResult__body p {
+  margin-left: 20px;
+}
