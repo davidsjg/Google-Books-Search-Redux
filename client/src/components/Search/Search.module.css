@@ -1,0 +1,31 @@
+.search__header {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  background-image: url("https://images.unsplash.com/photo-1519612632649-158aa883572a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100px;
+  color: white;
+}
+
+.search__headerMain {
+  font-weight: 700;
+  letter-spacing: 1.02px;
+  margin: 10px;
+  cursor: pointer;
+  display: block;
+  height: 15px;
+}
+
+.search__headerSub {
+  display: flex;
+  margin: 10px 40px;
+  height: 15px;
+}
+
+.search__headerSub > p {
+  margin: 0 7px;
+  cursor: pointer;
+}
