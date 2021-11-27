@@ -5,10 +5,7 @@ function Results() {
   return (
     <>
       <div className={styles["results"]}>
-        <p1>Book Search</p1>
-        <p2>Book:</p2>
-
-        <button className={styles["searchBar__button"]}>Search</button>
+        <p1>Results</p1>
       </div>
     </>
   );

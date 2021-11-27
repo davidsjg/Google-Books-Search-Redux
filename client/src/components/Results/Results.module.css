@@ -1,26 +1,9 @@
-.searchBar {
+.results {
   margin: 15px;
   border: 1px solid black;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  padding: 15px;
-}
-.searchBar p1 {
-  font-size: 20px;
-}
-.searchBar p2 {
-  font-size: 14px;
-  margin-top: 15px;
 }
 
-.searchBar__input {
-  margin: 15px 0;
-}
-
-.searchBar__button {
-  /* width: 70px; */
-  display: flex;
-  align-items: flex-end;
+.results p1 {
+  margin: 20px;
 }
