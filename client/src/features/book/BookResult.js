@@ -1,12 +1,10 @@
-import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectBook, setBook } from "./bookSlice";
 import styles from "./BookResult.module.css";
 
 function BookResult() {
-  //title                                                         View, Save
-  //subtitle
-  //author
-  //img
-  //description
+  const book = useSelector(selectBook);
+  console.log(book);
   return (
     <div className={styles["bookResult"]}>
       <div className={styles["bookResult__header"]}>

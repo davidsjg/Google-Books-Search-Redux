@@ -1,5 +1,6 @@
 import React from "react";
-import BookResult from "../BookResult/BookResult";
+import BookResult from "../../features/book/BookResult";
+
 import styles from "./Results.module.css";
 
 function Results() {
@@ -7,8 +8,6 @@ function Results() {
     <>
       <div className={styles["results"]}>
         <p1>Results</p1>
-        <BookResult />
-        <BookResult />
         <BookResult />
       </div>
     </>
