@@ -10,16 +10,16 @@ function BookResult() {
   const dispatch = useDispatch();
   const { bookData } = useContext(BookContext);
 
-  // useEffect(() => {
-
-  // }, []);
+  useEffect(() => {
+    dispatch(setBook(bookData));
+  }, []);
 
   const buttonClick = () => {
     dispatch(setBook(bookData));
   };
 
   const buttonClick2 = () => {
-    // console.log(book);
+    console.log(book);
   };
 
   return (
