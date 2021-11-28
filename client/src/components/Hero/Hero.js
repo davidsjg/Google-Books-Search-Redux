@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Banner.module.css";
+import styles from "./Hero.module.css";
 
 function Banner(props) {
   return (

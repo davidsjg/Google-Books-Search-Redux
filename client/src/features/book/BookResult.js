@@ -4,7 +4,7 @@ import styles from "./BookResult.module.css";
 
 function BookResult() {
   const book = useSelector(selectBook);
-  console.log(book);
+
   return (
     <div className={styles["bookResult"]}>
       <div className={styles["bookResult__header"]}>

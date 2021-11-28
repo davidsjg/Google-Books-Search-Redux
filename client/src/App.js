@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { bookData } from "./bookData";
+import BookContext from "./uitls/BookContext";
 
 import "./App.css";
 import Search from "./pages/Search/Search";
 
 function App() {
+  const [allBooks, setAllBooks] = useState({
+    bookData,
+  });
+
   return (
     <>
-      <Search />
+      <BookContext.Provider value={allBooks}>
+        <Search />
+      </BookContext.Provider>
     </>
   );
 }
