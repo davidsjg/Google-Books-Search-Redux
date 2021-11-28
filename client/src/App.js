@@ -14,14 +14,16 @@ function App() {
   });
 
   return (
-    <Router>
-      <div className="app">
-        <Routes>
-          <Route path="/" element={<BookDetail />} />
-          <Route path="/bookDetail" element={<BookDetail2 />} />
-        </Routes>
-      </div>
-    </Router>
+    <BookContext.Provider value={allBooks}>
+      <Router>
+        <div className="app">
+          <Routes>
+            <Route path="/" element={<Search />} />
+            <Route path="/bookDetail" element={<BookDetail2 />} />
+          </Routes>
+        </div>
+      </Router>
+    </BookContext.Provider>
   );
 }
 
@@ -30,5 +32,5 @@ export default App;
 {
   /* <BookContext.Provider value={allBooks}>
 <Search />
-</BookContext.Provider> */
+</BookContext.Provider>  */
 }
