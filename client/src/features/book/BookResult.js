@@ -1,9 +1,27 @@
+import { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBook, setBook } from "./bookSlice";
 import styles from "./BookResult.module.css";
+import BookContext from "../../uitls/BookContext";
 
 function BookResult() {
   const book = useSelector(selectBook);
+  const dispatch = useDispatch();
+  const { bookData } = useContext(BookContext);
+
+  // useEffect(() => {
+
+  // }, []);
+
+  const buttonClick = () => {
+    dispatch(setBook(bookData));
+  };
+
+  const buttonClick2 = () => {
+    console.log(book);
+  };
+
+  console.log(bookData);
 
   return (
     <div className={styles["bookResult"]}>
@@ -15,8 +33,8 @@ function BookResult() {
           </p>
         </span>
         <span className={styles["bookResult__spanButton"]}>
-          <button>View</button>
-          <button>Save</button>
+          <button onClick={buttonClick}>View</button>
+          <button onClick={buttonClick2}>Save</button>
         </span>
       </div>
       <div className={styles["bookResult__body"]}>

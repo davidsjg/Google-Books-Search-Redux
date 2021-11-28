@@ -7,7 +7,6 @@ import styles from "./Results.module.css";
 function Results() {
   const { bookData } = useContext(BookContext);
 
-  console.log(bookData);
   return (
     <>
       <div className={styles["results"]}>
