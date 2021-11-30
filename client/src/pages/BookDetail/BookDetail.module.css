@@ -4,14 +4,18 @@
   align-items: center;
   justify-content: space-around;
 
-  height: 100vh;
   border: 1px solid black;
   border-radius: 2px;
   width: 50%;
-  height: 75vh;
+  /* height: 75vh; */
   margin: auto;
-  margin-top: 75px;
+  margin-top: 25px;
+  /* margin-bottom: 75px; */
   padding: 0 20px;
+}
+
+.bookDetail * {
+  margin: 10px;
 }
 
 .bookDetail p {

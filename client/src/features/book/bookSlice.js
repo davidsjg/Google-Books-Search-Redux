@@ -20,10 +20,16 @@ export const bookSlice = createSlice({
       let temp = action.payload;
       state.allBooks = temp;
     },
+    setRead: (state) => {
+      state.read = true;
+    },
+    setUnread: (state) => {
+      state.read = false;
+    },
   },
 });
 
-export const { setBook } = bookSlice.actions;
+export const { setBook, setRead, setUnread } = bookSlice.actions;
 
 export const selectBook = (state) => state.book;
 
