@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 
 function BookResult() {
   //store, current state
-  const book = useSelector(selectBook);
-  const { allBooks } = book;
+  const bookState = useSelector(selectBook);
+  const { allBooks } = bookState;
+  const { book } = bookState;
   const dispatch = useDispatch();
   const { bookData } = useContext(BookContext);
 

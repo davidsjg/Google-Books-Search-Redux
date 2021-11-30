@@ -18,14 +18,12 @@ export const bookSlice = createSlice({
   initialState,
   reducers: {
     setBook: (state, action) => {
-      console.log(action.payload);
-      let temp = action.payload;
-      state.book = temp;
+      // console.log(action.payload);
+      state.book = action.payload;
     },
     setAllBooks: (state, action) => {
       // console.log(action.payload);
-      let temp = action.payload;
-      state.allBooks = temp;
+      state.allBooks = action.payload;
     },
     setRead: (state) => {
       state.read = true;

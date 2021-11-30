@@ -8,16 +8,11 @@ import {
   setUnread,
 } from "../../features/book/bookSlice";
 import BookContext from "../../uitls/BookContext";
-import { useParams } from "react-router-dom";
 
 function BookDetail() {
-  const bookStore = useSelector(selectBook);
+  const { book } = useSelector(selectBook);
   const dispatch = useDispatch();
   // const { bookData } = useContext(BookContext);
-
-  console.log(bookStore);
-
-  // const { book } = useParams();
 
   const buttonClick = () => {
     console.log((state) => state.book);
@@ -31,10 +26,10 @@ function BookDetail() {
     <>
       <div className={styles["bookDetail"]}>
         {/* {bookSelect.title ? <p>{bookSelect.title}</p> : <p>loading</p>} */}
-        <img src={bookStore.img} alt="" />
-        <h3>{bookStore.title}</h3>
-        <h4>By {bookStore.author}</h4>
-        <p>{bookStore.description}</p>
+        <img src={book.img} alt="" />
+        <h3>{book.title}</h3>
+        <h4>By {book.author}</h4>
+        <p>{book.description}</p>
         {/* <button onClick={buttonClick}>CLICK ME BRAH</button> */}
         <span>
           <button onClick={buttonClick}>Add to Read List</button>
