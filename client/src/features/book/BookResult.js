@@ -13,7 +13,7 @@ function BookResult() {
   const dispatch = useDispatch();
   const { bookData } = useContext(BookContext);
 
-  console.log(book);
+  // console.log(book);
 
   useEffect(() => {
     dispatch(setAllBooks(bookData));
@@ -26,6 +26,7 @@ function BookResult() {
   function newClick(clickBook) {
     // console.log(clickBook);
     dispatch(setBook(clickBook));
+    localStorage.setItem("book", JSON.stringify(clickBook));
   }
 
   const buttonClick2 = () => {
