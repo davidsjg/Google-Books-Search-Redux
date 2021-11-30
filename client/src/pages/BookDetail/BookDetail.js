@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./BookDetail.module.css";
 import {
@@ -13,11 +13,11 @@ import { useParams } from "react-router-dom";
 function BookDetail() {
   const bookStore = useSelector(selectBook);
   const dispatch = useDispatch();
-  const { bookData } = useContext(BookContext);
+  // const { bookData } = useContext(BookContext);
 
   console.log(bookStore);
 
-  const { book } = useParams();
+  // const { book } = useParams();
 
   const buttonClick = () => {
     console.log((state) => state.book);
