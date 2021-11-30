@@ -17,6 +17,7 @@ function BookResult() {
 
   const buttonClick = () => {
     dispatch(setBook(bookData));
+    console.log("SUP");
   };
 
   const buttonClick2 = () => {

@@ -10,20 +10,12 @@ function BookDetail() {
   const dispatch = useDispatch();
   const { bookData } = useContext(BookContext);
 
+  console.log(bookStore);
+
   const { book } = useParams();
 
-  const bookSelect = bookData.find(({ title }) => {
-    console.log(title);
-    return title == book;
-  });
-
-  useEffect(() => {
-    dispatch(setBook(bookData));
-    console.log(book);
-  }, []);
-
   const buttonClick = () => {
-    console.log(bookSelect.title);
+    // console.log(bookSelect.title);
   };
 
   const hasRead = () => {};
@@ -32,10 +24,10 @@ function BookDetail() {
     <>
       <div className={styles["bookDetail"]}>
         {/* {bookSelect.title ? <p>{bookSelect.title}</p> : <p>loading</p>} */}
-        <img src={bookSelect.img} alt="" />
-        <h3>{bookSelect.title}</h3>
-        <h4>{bookSelect.author}</h4>
-        <p>{bookSelect.description}</p>
+        <img src={bookStore.img} alt="" />
+        <h3>{bookStore.title}</h3>
+        <h4>{bookStore.author}</h4>
+        <p>{bookStore.description}</p>
         {/* <button onClick={buttonClick}>CLICK ME BRAH</button> */}
         <span>
           <button>Add to Read List</button>
