@@ -18,7 +18,6 @@ function App() {
         <>
           <Routes>
             <Route path="/" element={<Search />} />
-            <Route path="/bookDetail" element={<BookDetail />} />
             <Route path="/bookDetail/:book" element={<BookDetail />} />
           </Routes>
         </>

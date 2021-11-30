@@ -6,20 +6,25 @@ import BookContext from "../../uitls/BookContext";
 import { useParams } from "react-router-dom";
 
 function BookDetail() {
-  const book = useSelector(selectBook);
+  const bookStore = useSelector(selectBook);
   const dispatch = useDispatch();
   const { bookData } = useContext(BookContext);
 
-  const test = useParams();
+  let bookSelect;
 
-  console.log(test);
+  const { book } = useParams();
 
   useEffect(() => {
     dispatch(setBook(bookData));
+    console.log(book);
+    bookSelect = bookData.find(({ title }) => {
+      console.log(title);
+      return title == book;
+    });
   }, []);
 
   const buttonClick = () => {
-    console.log(book);
+    console.log(bookSelect);
   };
 
   return (
