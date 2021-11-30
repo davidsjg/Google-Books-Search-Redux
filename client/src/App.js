@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Search from "./pages/Search/Search";
 import BookDetail from "./pages/BookDetail/BookDetail";
-import BookDetail2 from "./pages/BookDetail2/BookDetail2";
 
 function App() {
   const [allBooks, setAllBooks] = useState({
@@ -16,12 +15,12 @@ function App() {
   return (
     <BookContext.Provider value={allBooks}>
       <Router>
-        <div className="app">
+        <>
           <Routes>
             <Route path="/" element={<Search />} />
-            <Route path="/bookDetail" element={<BookDetail2 />} />
+            <Route path="/bookDetail" element={<BookDetail />} />
           </Routes>
-        </div>
+        </>
       </Router>
     </BookContext.Provider>
   );

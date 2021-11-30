@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectBook, setBook } from "./bookSlice";
 import styles from "./BookResult.module.css";
 import BookContext from "../../uitls/BookContext";
+import { Link } from "react-router-dom";
 
 function BookResult() {
   const book = useSelector(selectBook);
@@ -36,7 +37,9 @@ function BookResult() {
                 </p>
               </span>
               <span className={styles["bookResult__spanButton"]}>
-                <button onClick={buttonClick}>View</button>
+                <Link to={`/bookDetail/${book.title}`}>
+                  <button onClick={buttonClick}>View</button>
+                </Link>
                 <button onClick={buttonClick2}>Save</button>
               </span>
             </div>

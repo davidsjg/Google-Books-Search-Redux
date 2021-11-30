@@ -15,7 +15,7 @@ export const bookSlice = createSlice({
   initialState,
   reducers: {
     setBook: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       let temp = action.payload;
       state.allBooks = temp;
     },
