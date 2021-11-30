@@ -2,19 +2,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 100vh;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 50%;
+  height: 75vh;
+  margin: auto;
+  margin-top: 75px;
+  padding: 0 20px;
 }
 
 .bookDetail p {
-  border: 1px solid black;
-  width: 50%;
-  height: 75vh;
-  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.bookDetail h3 {
+  text-decoration: underline;
+}
+
+.bookDetail img {
+  height: 250px;
+}
+
 /* 
 .bookDetail {
   margin: 15px;
