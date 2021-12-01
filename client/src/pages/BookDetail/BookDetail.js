@@ -50,7 +50,16 @@ function BookDetail() {
   return (
     <>
       <div className={styles["bookDetail"]}>
-        <img src={selectedBook.img} alt="" />
+        <span className={styles["bookDetail__top"]}>
+          <p></p>
+          <img src={selectedBook.img} alt="" />
+          {selectedBook.read ? (
+            <div className={styles["displayRead"]}>Read!</div>
+          ) : (
+            <div className={styles["displayUnread"]}>Need to Read!</div>
+          )}
+        </span>
+
         <h3>{selectedBook.title}</h3>
         <h4>By {selectedBook.author}</h4>
         <p>{selectedBook.description}</p>
@@ -60,7 +69,7 @@ function BookDetail() {
           {selectedBook.read ? (
             <button onClick={hasRead}>Need to Reed!</button>
           ) : (
-            <button onClick={hasRead}>Mark as Read!</button>
+            <button onClick={notRead}>Mark as Read!</button>
           )}
         </span>
       </div>

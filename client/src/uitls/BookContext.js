@@ -6,6 +6,7 @@ const BookContext = React.createContext({
   author: "",
   img: "",
   description: "",
+  read: false,
 });
 
 export default BookContext;

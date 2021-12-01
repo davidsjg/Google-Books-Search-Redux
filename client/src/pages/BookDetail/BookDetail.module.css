@@ -1,3 +1,7 @@
+.bookDetail * {
+  margin: 10px;
+}
+
 .bookDetail {
   display: flex;
   flex-direction: column;
@@ -14,8 +18,10 @@
   padding: 0 20px;
 }
 
-.bookDetail * {
-  margin: 10px;
+.bookDetail__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 
 .bookDetail p {
@@ -30,6 +36,22 @@
 
 .bookDetail img {
   height: 250px;
+}
+
+.displayRead {
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+  background-color: green;
+  border-radius: 2px;
+}
+
+.displayUnread {
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+  background-color: red;
+  border-radius: 2px;
 }
 
 /* 
