@@ -19,18 +19,16 @@ function BookDetail() {
   let book2;
 
   const params = useParams();
-  console.log(params);
-  console.log(allBooks);
 
-  const foundBook = allBooks.find((bookFind) => {});
-  // const { bookData } = useContext(BookContext);
+  let bookFind;
 
   useEffect(() => {
-    book2 = JSON.parse(localStorage.getItem("book"));
-    console.log(book2);
-
-    dispatch(setBook(book2));
+    console.log(allBooks);
+    console.log(params.title);
     dispatch(setAllBooks(bookData));
+    bookFind = allBooks.find(({ title }) => title === params.title);
+    console.log(bookFind);
+    dispatch(setBook(bookFind));
   }, []);
 
   const buttonClick = () => {

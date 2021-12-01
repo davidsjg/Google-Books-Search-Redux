@@ -6,32 +6,21 @@ import BookContext from "../../uitls/BookContext";
 import { Link } from "react-router-dom";
 
 function BookResult() {
-  //store, current state
+  // store, currentState
   const bookState = useSelector(selectBook);
   const { allBooks } = bookState;
   const { book } = bookState;
   const dispatch = useDispatch();
+  //context api
   const { bookData } = useContext(BookContext);
 
-  // console.log(book);
-
   useEffect(() => {
-    console.log(bookData);
     dispatch(setAllBooks(bookData));
   }, []);
 
-  // const buttonClick = (clickBook) => {
-  //   console.log(clickBook);
-  // };
-
   function newClick(clickBook) {
-    // console.log(clickBook);
     dispatch(setBook(clickBook));
   }
-
-  const buttonClick2 = () => {
-    console.log(book);
-  };
 
   return (
     <>
