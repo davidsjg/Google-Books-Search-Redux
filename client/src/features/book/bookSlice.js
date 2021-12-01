@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  book: {
+  selectedBook: {
     title: "Harry Potter",
     subtitle: "Becoming a Noob",
     author: "Noob MaGee",
@@ -19,17 +19,17 @@ export const bookSlice = createSlice({
   reducers: {
     setBook: (state, action) => {
       // console.log(action.payload);
-      state.book = action.payload;
+      state.selectedBook = action.payload;
     },
     setAllBooks: (state, action) => {
       // console.log(action.payload);
       state.allBooks = action.payload;
     },
     setRead: (state) => {
-      state.read = true;
+      state.selectedBook.read = true;
     },
     setUnread: (state) => {
-      state.read = false;
+      state.selectedBook.read = false;
     },
   },
 });

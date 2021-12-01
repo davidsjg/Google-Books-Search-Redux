@@ -11,7 +11,7 @@ import BookContext from "../../uitls/BookContext";
 import { useParams } from "react-router-dom";
 
 function BookDetail() {
-  const { book } = useSelector(selectBook);
+  const { selectedBook } = useSelector(selectBook);
   const dispatch = useDispatch();
   let book2;
 
@@ -22,11 +22,11 @@ function BookDetail() {
   useEffect(() => {
     book2 = JSON.parse(localStorage.getItem("book"));
     console.log(book2);
-    setBook(book2);
+    dispatch(setBook(book2));
   }, []);
 
   const buttonClick = () => {
-    console.log((state) => state.book);
+    console.log(selectedBook);
   };
 
   const hasRead = () => {
@@ -37,10 +37,10 @@ function BookDetail() {
     <>
       <div className={styles["bookDetail"]}>
         {/* {bookSelect.title ? <p>{bookSelect.title}</p> : <p>loading</p>} */}
-        <img src={book.img} alt="" />
-        <h3>{book.title}</h3>
-        <h4>By {book.author}</h4>
-        <p>{book.description}</p>
+        <img src={selectedBook.img} alt="" />
+        <h3>{selectedBook.title}</h3>
+        <h4>By {selectedBook.author}</h4>
+        <p>{selectedBook.description}</p>
         {/* <button onClick={buttonClick}>CLICK ME BRAH</button> */}
         <span>
           <button onClick={buttonClick}>Add to Read List</button>
