@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
 
 // app.use(routes)
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bookFinder");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googleBooks");
 
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
