@@ -5,7 +5,7 @@ const connectDB = require("../config/db");
 
 connectDB();
 
-const books = JSON.parse(fs.readFileSync(`${__dirname}/lakes.json`, "utf-8"));
+const books = JSON.parse(fs.readFileSync(`${__dirname}/books.json`, "utf-8"));
 
 const importData = async () => {
   try {
