@@ -18,15 +18,18 @@ function BookDetail() {
   const dispatch = useDispatch();
   let book2;
 
+  console.log(selectedBook);
   const params = useParams();
 
-  let bookFind;
+  dispatch(setAllBooks(bookData));
+
+  let bookFind = allBooks.find(({ title }) => title === params.title);
 
   useEffect(() => {
-    console.log(allBooks);
     console.log(params.title);
-    dispatch(setAllBooks(bookData));
-    bookFind = allBooks.find(({ title }) => title === params.title);
+
+    console.log(allBooks);
+
     console.log(bookFind);
     dispatch(setBook(bookFind));
   }, []);
@@ -61,6 +64,11 @@ function BookDetail() {
           )}
         </span>
       </div>
+      {/* {selectedBook ? (
+
+      ) : (
+        <p>loading</p>
+      )} */}
     </>
   );
 }
