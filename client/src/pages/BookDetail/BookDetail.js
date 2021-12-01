@@ -67,9 +67,9 @@ function BookDetail() {
           <button onClick={buttonClick}>Add to Read List</button>
 
           {selectedBook.read ? (
-            <button onClick={hasRead}>Need to Reed!</button>
+            <button onClick={notRead}>Need to Reed!</button>
           ) : (
-            <button onClick={notRead}>Mark as Read!</button>
+            <button onClick={hasRead}>Mark as Read!</button>
           )}
         </span>
       </div>
