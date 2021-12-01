@@ -16,6 +16,7 @@ function BookResult() {
   // console.log(book);
 
   useEffect(() => {
+    console.log(bookData);
     dispatch(setAllBooks(bookData));
   }, []);
 
@@ -26,7 +27,6 @@ function BookResult() {
   function newClick(clickBook) {
     // console.log(clickBook);
     dispatch(setBook(clickBook));
-    localStorage.setItem("book", JSON.stringify(clickBook));
   }
 
   const buttonClick2 = () => {
