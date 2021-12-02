@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { bookData } from "./bookData";
+import React from "react";
 import { setAllBooks } from "./features/book/bookSlice";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Header from "./components/Header/Header";
 
-import "./App.css";
 import Search from "./pages/Search/Search";
 import BookDetail from "./pages/BookDetail/BookDetail";
 import Saved from "./pages/Saved/Saved";
+import Header from "./components/Header/Header";
+
+import "./App.css";
 
 function App() {
-  const [allBooks, setAllBooks] = useState({
-    bookData,
-  });
-
   return (
     <Router>
       <>
@@ -29,9 +24,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <BookContext.Provider value={allBooks}>
-<Search />
-</BookContext.Provider>  */
-}

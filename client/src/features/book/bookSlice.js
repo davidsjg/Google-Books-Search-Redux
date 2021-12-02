@@ -21,7 +21,16 @@ export const bookSlice = createSlice({
   reducers: {
     setBook: (state, action) => {
       // console.log(action.payload);
-      state.selectedBook = action.payload;
+      return {
+        ...state,
+        title: state.selectedBook.title,
+        subtitle: state.selectedBook.subtitle,
+        author: state.selectedBook.author,
+        img: state.selectedBook.author,
+        description: state.selectedBook.description,
+      };
+
+      // state.selectedBook = action.payload;
     },
     setAllBooks: (state, action) => {
       // console.log(action.payload);

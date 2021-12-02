@@ -5,7 +5,7 @@ import styles from "./BookResult.module.css";
 import BookContext from "../../uitls/BookContext";
 import { Link } from "react-router-dom";
 
-function BookResult() {
+function SavedBooks() {
   // store, currentState
   const bookState = useSelector(selectBook);
   const { savedBooks } = bookState;
@@ -13,7 +13,7 @@ function BookResult() {
   const dispatch = useDispatch();
 
   function newClick(clickBook) {
-    dispatch(setBook(clickBook));
+    // dispatch(setBook(clickBook));
   }
 
   return (
@@ -47,4 +47,4 @@ function BookResult() {
   );
 }
 
-export default BookResult;
+export default SavedBooks;
