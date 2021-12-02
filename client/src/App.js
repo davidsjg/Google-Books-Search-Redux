@@ -18,7 +18,6 @@ function App() {
 
   return (
     <BookContext.Provider value={allBooks}>
-      <Header />
       <Router>
         <>
           <Routes>

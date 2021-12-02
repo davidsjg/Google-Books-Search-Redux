@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectBook, setBook, setAllBooks, saveBook } from "./bookSlice";
+import { selectBook, setBook, setAllBooks } from "./bookSlice";
 import styles from "./BookResult.module.css";
 import BookContext from "../../uitls/BookContext";
 import { Link } from "react-router-dom";
@@ -8,29 +8,23 @@ import { Link } from "react-router-dom";
 function BookResult() {
   // store, currentState
   const bookState = useSelector(selectBook);
-
-  console.log(bookState);
-  const { allBooks } = bookState;
+  const { savedBooks } = bookState;
   const { book } = bookState;
   const dispatch = useDispatch();
   //context api
   const { bookData } = useContext(BookContext);
 
-  // useEffect(() => {
-  //   dispatch(setAllBooks(bookData));
-  // }, []);
+  useEffect(() => {
+    dispatch(setAllBooks(bookData));
+  }, []);
 
   function newClick(clickBook) {
     dispatch(setBook(clickBook));
   }
 
-  function saveClick(clickBook) {
-    dispatch(saveBook(clickBook));
-  }
-
   return (
     <>
-      {allBooks.map((book) => {
+      {savedBooks.map((book) => {
         return (
           <div className={styles["bookResult"]}>
             <div className={styles["bookResult__header"]}>
@@ -45,7 +39,7 @@ function BookResult() {
                 <Link to={`/bookDetail/${book.title}`}>
                   <button onClick={() => newClick(book)}>View</button>
                 </Link>
-                <button onClick={() => saveClick(book)}>Save</button>
+                <button onClick={() => newClick(book)}>Save</button>
               </span>
             </div>
             <div className={styles["bookResult__body"]}>

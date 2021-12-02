@@ -6,18 +6,18 @@ function Header() {
   return (
     <>
       <div className={styles["search__header"]}>
-        <a href={"/"}>
+        <Link to={"/"}>
           <p className={styles["search__headerMain"]}>Google Books</p>
-        </a>
+        </Link>
 
         <span className={styles["search__headerSub"]}>
-          <a href={"/"}>
+          <Link to={"/"}>
             <p className={styles["searchButton"]}>Search</p>
-          </a>
+          </Link>
           |
-          <a href={"/saved"}>
+          <Link to={"/saved"}>
             <p className={styles["savedButton"]}>Saved</p>
-          </a>
+          </Link>
         </span>
       </div>
     </>

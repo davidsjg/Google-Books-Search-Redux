@@ -10,6 +10,7 @@ import {
 } from "../../features/book/bookSlice";
 import BookContext from "../../uitls/BookContext";
 import { useParams, Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 function BookDetail() {
   const { selectedBook } = useSelector(selectBook);
@@ -49,6 +50,7 @@ function BookDetail() {
 
   return (
     <>
+      <Header />
       <div className={styles["bookDetail"]}>
         <span className={styles["bookDetail__top"]}>
           <Link to={"/"}>
