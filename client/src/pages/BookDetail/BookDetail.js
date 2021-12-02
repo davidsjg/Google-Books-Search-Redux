@@ -9,7 +9,7 @@ import {
   setUnread,
 } from "../../features/book/bookSlice";
 import BookContext from "../../uitls/BookContext";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function BookDetail() {
   const { selectedBook } = useSelector(selectBook);
@@ -51,7 +51,9 @@ function BookDetail() {
     <>
       <div className={styles["bookDetail"]}>
         <span className={styles["bookDetail__top"]}>
-          <p></p>
+          <Link to={"/"}>
+            <button className={styles["returnHome"]}>Return Home</button>
+          </Link>
           <img src={selectedBook.img} alt="" />
           {selectedBook.read ? (
             <div className={styles["displayRead"]}>Read!</div>
@@ -73,11 +75,6 @@ function BookDetail() {
           )}
         </span>
       </div>
-      {/* {selectedBook ? (
-
-      ) : (
-        <p>loading</p>
-      )} */}
     </>
   );
 }

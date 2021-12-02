@@ -4,13 +4,13 @@ import BookContext from "../../uitls/BookContext";
 
 import styles from "./Results.module.css";
 
-function Results() {
+function Results(props) {
   const { bookData } = useContext(BookContext);
 
   return (
     <>
       <div className={styles["results"]}>
-        <p1>Results</p1>
+        <p1>{props.title}</p1>
         <BookResult />
       </div>
     </>

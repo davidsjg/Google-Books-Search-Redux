@@ -9,10 +9,10 @@ function Search() {
   let searchTitleSub = "Search for and Save Books of Interest";
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Hero mainTitle={searchTitleMain} subTitle={searchTitleSub} />
       <Searchbar />
-      <Results />
+      <Results title={"Results"} />
     </>
   );
 }

@@ -9,6 +9,9 @@
   min-height: 75px;
   color: white;
 }
+.search__header a {
+  text-decoration: none;
+}
 
 .search__headerMain {
   font-weight: 700;
@@ -17,6 +20,7 @@
   cursor: pointer;
   display: block;
   height: 15px;
+  color: white;
 }
 
 .search__headerSub {
@@ -28,4 +32,9 @@
 .search__headerSub > p {
   margin: 0 7px;
   cursor: pointer;
+}
+.search__headerSub > a {
+  text-decoration: none;
+  color: white;
+  margin-left: 7px;
 }

@@ -1,17 +1,24 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
-function header() {
+function Header() {
   return (
     <>
       <div className={styles["search__header"]}>
-        <p className={styles["search__headerMain"]}>Google Books</p>
+        <a href={"/"}>
+          <p className={styles["search__headerMain"]}>Google Books</p>
+        </a>
+
         <span className={styles["search__headerSub"]}>
-          <p>Search</p> | <p>Saved</p>
+          <p>Search</p> |
+          <a href={"/saved"}>
+            <p className={styles["savedButton"]}>Saved</p>
+          </a>
         </span>
       </div>
     </>
   );
 }
 
-export default header;
+export default Header;
