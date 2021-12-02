@@ -9,30 +9,18 @@ import {
   setRead,
   setUnread,
 } from "../../features/book/bookSlice";
-import BookContext from "../../uitls/BookContext";
 import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
 function BookDetail() {
   const { selectedBook } = useSelector(selectBook);
   const { allBooks } = useSelector(selectBook);
-  const { bookData } = useContext(BookContext);
   const dispatch = useDispatch();
-  let book2;
-
-  console.log(selectedBook);
   const params = useParams();
-
-  dispatch(setAllBooks(bookData));
 
   let bookFind = allBooks.find(({ title }) => title === params.title);
 
   useEffect(() => {
-    console.log(params.title);
-
-    console.log(allBooks);
-
-    console.log(bookFind);
     dispatch(setBook(bookFind));
   }, []);
 

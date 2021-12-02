@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bookData } from "./bookData";
 import { setAllBooks } from "./features/book/bookSlice";
-import BookContext from "./uitls/BookContext";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 
@@ -17,17 +16,15 @@ function App() {
   });
 
   return (
-    <BookContext.Provider value={allBooks}>
-      <Router>
-        <>
-          <Routes>
-            <Route path="/" element={<Search />} />
-            <Route path="/bookDetail/:title" element={<BookDetail />} />
-            <Route path="/saved" element={<Saved />} />
-          </Routes>
-        </>
-      </Router>
-    </BookContext.Provider>
+    <Router>
+      <>
+        <Routes>
+          <Route path="/" element={<Search />} />
+          <Route path="/bookDetail/:title" element={<BookDetail />} />
+          <Route path="/saved" element={<Saved />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 

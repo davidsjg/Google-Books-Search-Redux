@@ -9,7 +9,6 @@ function BookResult() {
   // store, currentState
   const bookState = useSelector(selectBook);
 
-  console.log(bookState);
   const { allBooks } = bookState;
   const { book } = bookState;
   const dispatch = useDispatch();

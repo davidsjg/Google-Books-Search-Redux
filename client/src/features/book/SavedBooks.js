@@ -11,12 +11,6 @@ function BookResult() {
   const { savedBooks } = bookState;
   const { book } = bookState;
   const dispatch = useDispatch();
-  //context api
-  const { bookData } = useContext(BookContext);
-
-  useEffect(() => {
-    dispatch(setAllBooks(bookData));
-  }, []);
 
   function newClick(clickBook) {
     dispatch(setBook(clickBook));
