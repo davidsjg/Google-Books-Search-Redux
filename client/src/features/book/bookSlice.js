@@ -11,6 +11,7 @@ const initialState = {
     read: false,
   },
   allBooks: [],
+  savedBooks: [],
 };
 
 export const bookSlice = createSlice({
@@ -31,10 +32,14 @@ export const bookSlice = createSlice({
     setUnread: (state) => {
       state.selectedBook.read = false;
     },
+    saveBook: (state, action) => {
+      state.savedBooks.push(action.payload);
+    },
   },
 });
 
-export const { setBook, setRead, setAllBooks, setUnread } = bookSlice.actions;
+export const { setBook, setRead, setAllBooks, setUnread, saveBook } =
+  bookSlice.actions;
 
 export const selectBook = (state) => state.book;
 

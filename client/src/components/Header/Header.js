@@ -11,7 +11,10 @@ function Header() {
         </a>
 
         <span className={styles["search__headerSub"]}>
-          <p>Search</p> |
+          <a href={"/"}>
+            <p className={styles["searchButton"]}>Search</p>
+          </a>
+          |
           <a href={"/saved"}>
             <p className={styles["savedButton"]}>Saved</p>
           </a>
