@@ -16,7 +16,7 @@ function Header() {
           </Link>
           |
           <Link to={"/saved"}>
-            <p className={styles["savedButton"]}>Saved</p>
+            <p className={styles["savedButton"]}>Read List</p>
           </Link>
         </span>
       </div>

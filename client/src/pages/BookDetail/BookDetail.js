@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./BookDetail.module.css";
 import {
+  saveBook,
   selectBook,
   setAllBooks,
   setBook,
@@ -48,6 +49,10 @@ function BookDetail() {
     dispatch(setUnread());
   };
 
+  const addReadList = () => {
+    dispatch(saveBook(selectedBook));
+  };
+
   return (
     <>
       <Header />
@@ -68,7 +73,7 @@ function BookDetail() {
         <h4>By {selectedBook.author}</h4>
         <p>{selectedBook.description}</p>
         <span>
-          <button onClick={buttonClick}>Add to Read List</button>
+          <button onClick={addReadList}>Add to Read List</button>
 
           {selectedBook.read ? (
             <button onClick={notRead}>Need to Reed!</button>
