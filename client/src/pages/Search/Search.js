@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import API from "../../uitls/API";
 import Header from "../../components/Header/Header";
@@ -19,9 +19,13 @@ function Search() {
 
   console.log(allBooks);
 
+  useEffect(() => {
+    loadBooks();
+  }, []);
+
   const loadBooks = () => {
-    API.getBooks().then((lake) => {
-      dispatch(setAllBooks(lake));
+    API.getBooks().then((book) => {
+      dispatch(setAllBooks(book));
     });
   };
 

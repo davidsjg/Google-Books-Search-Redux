@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Searchbar.module.css";
 import axios from "axios";
+import API from "../../uitls/API";
 
 function Searchbar() {
   const [userBook, setUserBook] = useState();
@@ -8,7 +9,13 @@ function Searchbar() {
   const inputBook = (e) => {};
 
   const searchClick = () => {
-    console.log(userBook);
+    // API.findBook(userBook).then((book) => {
+    //   console.log(book);
+    // });
+
+    API.getDank().then((book) => {
+      console.log(book);
+    });
   };
 
   return (
