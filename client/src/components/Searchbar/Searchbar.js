@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import styles from "./Searchbar.module.css";
 import axios from "axios";
 import API from "../../uitls/API";
+import { selectBook, setAllBooks } from "../../features/book/bookSlice";
 
 function Searchbar() {
   const [userBook, setUserBook] = useState();
+  const dispatch = useDispatch();
+
+  const currBook = useSelector(selectBook);
 
   const inputBook = (e) => {};
 
@@ -15,6 +21,7 @@ function Searchbar() {
 
     API.findBook(userBook).then((book) => {
       console.log(book);
+      dispatch(setAllBooks(book.data));
     });
   };
 

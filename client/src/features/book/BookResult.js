@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBook, setBook, setAllBooks, saveBook } from "./bookSlice";
 import styles from "./BookResult.module.css";
-import BookContext from "../../uitls/BookContext";
+
 import { Link } from "react-router-dom";
 
 function BookResult() {
@@ -13,8 +13,6 @@ function BookResult() {
 
   const { book } = bookState;
   const dispatch = useDispatch();
-  //context api
-  const { bookData } = useContext(BookContext);
 
   // useEffect(() => {
   //   dispatch(setAllBooks(bookData));
