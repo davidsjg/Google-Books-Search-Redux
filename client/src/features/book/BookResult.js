@@ -10,6 +10,7 @@ function BookResult() {
   const bookState = useSelector(selectBook);
 
   const { allBooks } = bookState;
+  console.log(allBooks);
   const { book } = bookState;
   const dispatch = useDispatch();
   //context api
@@ -29,7 +30,7 @@ function BookResult() {
 
   return (
     <>
-      {/* {allBooks &&
+      {allBooks &&
         allBooks.map((book) => {
           return (
             <div className={styles["bookResult"]}>
@@ -54,7 +55,7 @@ function BookResult() {
               </div>
             </div>
           );
-        })} */}
+        })}
     </>
   );
 }

@@ -25,7 +25,7 @@ function Search() {
 
   const loadBooks = () => {
     API.getBooks().then((book) => {
-      dispatch(setAllBooks(book));
+      dispatch(setAllBooks(book.data));
     });
   };
 
