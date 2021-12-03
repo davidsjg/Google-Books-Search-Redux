@@ -13,7 +13,7 @@ function Searchbar() {
     //   console.log(book);
     // });
 
-    API.getDank().then((book) => {
+    API.findBook(userBook).then((book) => {
       console.log(book);
     });
   };

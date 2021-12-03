@@ -10,7 +10,7 @@ function BookResult() {
   const bookState = useSelector(selectBook);
 
   const { allBooks } = bookState;
-  console.log(allBooks);
+
   const { book } = bookState;
   const dispatch = useDispatch();
   //context api

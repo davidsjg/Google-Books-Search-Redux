@@ -5,6 +5,6 @@ export default {
     return axios.get("/api/books");
   },
   findBook: function (book) {
-    return axios.get("/api/books", { params: { q: book } });
+    return axios.get("/api/books/book", { params: { q: book } });
   },
 };

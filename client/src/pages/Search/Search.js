@@ -17,8 +17,6 @@ function Search() {
 
   const { allBooks } = curBook;
 
-  console.log(allBooks);
-
   useEffect(() => {
     loadBooks();
   }, []);
