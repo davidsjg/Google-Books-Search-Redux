@@ -26,6 +26,11 @@ module.exports = {
           path: "$new_title",
         },
       },
+      {
+        $match: {
+          new_title: "of",
+        },
+      },
     ])
 
       .then((dbModel) => res.json(dbModel))
