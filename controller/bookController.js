@@ -15,6 +15,8 @@ module.exports = {
     db.Book.aggregate([
       {
         $project: {
+          _id: 0,
+          title: 1,
           new_title: {
             $split: ["$title", " "],
           },
@@ -29,6 +31,11 @@ module.exports = {
       {
         $match: {
           new_title: "of",
+        },
+      },
+      {
+        $project: {
+          title: 1,
         },
       },
     ])
