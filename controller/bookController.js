@@ -12,16 +12,21 @@ module.exports = {
     let tempReg = new RegExp(req.query.q, "i");
     console.log(tempArr);
 
-    db.Book.find(
-      //returns all projects as objects {title: book}
-      { $project: { array_title: { $split: ["title", " "] }, qty: 1 } },
-
+    db.Book.aggregate([
       {
-        array_title: {
-          $in: ["of"],
+        $project: {
+          new_title: {
+            $split: ["$title", " "],
+          },
+          qty: 1,
         },
-      }
-    )
+      },
+      {
+        $unwind: {
+          path: "$new_title",
+        },
+      },
+    ])
 
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
