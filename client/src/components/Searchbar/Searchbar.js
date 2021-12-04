@@ -16,12 +16,6 @@ function Searchbar() {
 
   const searchClick = () => {
     // let tempTitle = currBook.title.split(" ");
-    console.log(currBook.allBooks);
-
-    let tempArray = currBook.allBooks.map((book) => {
-      let bookTitleArray = book.title.split(" ");
-      console.log(bookTitleArray);
-    });
 
     API.findBook(userBook).then((book) => {
       console.log(book);
