@@ -18,18 +18,33 @@ function Searchbar() {
 
   const searchClick = () => {
     // let tempTitle = currBook.title.split(" ");
+    let matchArray = [];
 
     API.findBook(userBook).then((book) => {
-      let matchArray = [];
       let resTitles = book.data;
 
-      for (let i = 0; i < resTitles.length; i++) {
-        allBooks.map((book) => {
-          console.log(book.title);
-          console.log(resTitles[i]);
-          if (book.title === resTitles[i].title) matchArray.push(book);
+      allBooks.map((findBook, index) => {
+        let tempTitle = resTitles[index];
+
+        resTitles.map((title) => {
+          let temp = title.title;
+          console.log(findBook.title);
+          console.log(temp);
+          if (findBook.title === temp) matchArray.push(findBook);
+          return matchArray;
         });
-      }
+      });
+
+      // for (let i = 0; i < resTitles.length; i++) {
+      //   let tempTitle = resTitles[i];
+      //   allBooks.map((book) => {
+      //     console.log(book.title);
+      //     console.log(resTitles[i].title);
+      //     {
+      //       if (book.title === resTitles[i].title) matchArray.push(book);
+      //     }
+      //   });
+      // }
 
       // console.log(title.title);
 
@@ -40,7 +55,7 @@ function Searchbar() {
       console.log(matchArray);
     });
 
-    // dispatch(setAllBooks(matchArray));
+    dispatch(setAllBooks(matchArray));
   };
 
   return (
