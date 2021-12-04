@@ -12,15 +12,35 @@ function Searchbar() {
 
   const currBook = useSelector(selectBook);
 
+  let { allBooks } = currBook;
+
   const inputBook = (e) => {};
 
   const searchClick = () => {
     // let tempTitle = currBook.title.split(" ");
 
     API.findBook(userBook).then((book) => {
-      console.log(book);
-      dispatch(setAllBooks(book.data));
+      let matchArray = [];
+      let resTitles = book.data;
+
+      for (let i = 0; i < resTitles.length; i++) {
+        allBooks.map((book) => {
+          console.log(book.title);
+          console.log(resTitles[i]);
+          if (book.title === resTitles[i].title) matchArray.push(book);
+        });
+      }
+
+      // console.log(title.title);
+
+      // if (title.title === temp.title) {
+      //   matchArray.push(temp);
+      // }
+
+      console.log(matchArray);
     });
+
+    // dispatch(setAllBooks(matchArray));
   };
 
   return (
