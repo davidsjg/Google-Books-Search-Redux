@@ -8,6 +8,7 @@ import Saved from "./pages/Saved/Saved";
 import Header from "./components/Header/Header";
 
 import "./App.css";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <>
         <Routes>
           <Route path="/" element={<Search />} />
-          {/* <Route path="/:book" element={<Search />} /> */}
+          <Route path="/login" element={<Login />} />
           <Route path="/bookDetail/:title" element={<BookDetail />} />
           <Route path="/saved" element={<Saved />} />
         </Routes>

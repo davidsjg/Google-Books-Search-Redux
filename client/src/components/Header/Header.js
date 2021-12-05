@@ -19,6 +19,10 @@ function Header() {
             <p className={styles["savedButton"]}>View Saved</p>
           </Link>
         </span>
+
+        <Link to={"/login"}>
+          <p className={styles["header_login"]}>Login</p>
+        </Link>
       </div>
     </>
   );

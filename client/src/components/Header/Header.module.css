@@ -6,6 +6,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  align-items: baseline;
   min-height: 75px;
   color: white;
 }
@@ -41,4 +42,9 @@
 
 .searchButton {
   margin-right: 7px;
+}
+
+.header_login {
+  /* align-self: flex-end; */
+  color: white;
 }

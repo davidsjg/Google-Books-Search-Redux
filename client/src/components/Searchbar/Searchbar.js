@@ -22,18 +22,57 @@ function Searchbar() {
 
     API.findBook(userBook).then((book) => {
       let resTitles = book.data;
+      let tempBookTitle;
+      let newArr = [];
 
-      allBooks.map((findBook, index) => {
-        let tempTitle = resTitles[index];
+      console.log(book.data);
 
-        resTitles.map((title) => {
-          let temp = title.title;
-          console.log(findBook.title);
-          console.log(temp);
-          if (findBook.title === temp) matchArray.push(findBook);
-          return matchArray;
-        });
+      book.data.map((book) => {
+        newArr.push(book.title);
+        // console.log(newArr);
       });
+      console.log(allBooks);
+      // newArr.map((bookTitle) => {
+      //   // console.log(bookTitle);
+      //   const result = allBooks.find((book) => {
+      //     book.title === bookTitle;
+      //   });
+      //   return result;
+      // });
+
+      // book.data.map((book) => {
+      //   let tempTitle = book.title;
+
+      //   allBooks.find((findBook) => {
+      //     let { title } = findBook;
+      //     console.log(title);
+      //     console.log(tempTitle);
+
+      //     if (title === tempTitle) matchArray.push(book);
+      //   });
+      // });
+
+      // allBooks.map((book) => {
+      //   console.log(book.title);
+      //   tempTitles.push(book.title);
+      // });
+      // console.log(tempTitles);
+
+      // allBooks.map((findBook, index) => {
+      //   tempBookTitle = resTitles[index];
+
+      //   resTitles.find((book) => {});
+      // });
+
+      // res;
+      // resTitles.map((title) => {
+      //   let tempTitle = title.title;
+      //   let tempBookTitle = findBook.title;
+      //   console.log(tempBookTitle);
+      //   console.log(tempTitle);
+      //   // if (findBook.title === temp) matchArray.push(findBook);
+      //   // return matchArray;
+      // });
 
       // for (let i = 0; i < resTitles.length; i++) {
       //   let tempTitle = resTitles[i];
