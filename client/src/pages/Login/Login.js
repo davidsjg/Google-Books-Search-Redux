@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
@@ -27,7 +28,14 @@ function Login() {
   const login = async (e) => {
     e.preventDefault();
 
-    // auth.signInWithEmailAndPassword(email, password);
+    let tempEmail = email.target.value;
+    let tempPW = password.target.value;
+
+    try {
+      const user = await signInWithEmailAndPassword(auth, tempEmail, tempPW);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const logout = async (e) => {
@@ -95,7 +103,9 @@ function Login() {
                 Create Account
               </div>
               <div className={styles["userLogged"]}>
-                Logged in as: {user?.email}
+                <p>Logged in as:</p>
+                <p>{user?.email}</p>
+                <button onClick={logout}>Sing Out</button>
               </div>
             </form>
           </div>

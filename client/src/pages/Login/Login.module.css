@@ -90,14 +90,22 @@
   /* text-align: center; */
   cursor: pointer;
 }
+.register_button:hover {
+  background-color: lightgray;
+}
 .signIn_button {
   box-shadow: inset 0 0 0 1px black;
   border-radius: 24px;
   padding: 10px 24px;
   margin: 15px 0;
   transition-duration: 167ms;
+  text-align: center;
   /* text-align: center; */
   cursor: pointer;
+}
+.signIn_button:hover {
+  box-shadow: inset 0 0 0 1px black;
+  background-color: lightgray;
 }
 
 .orLine {
@@ -112,5 +120,10 @@
 }
 
 .userLogged {
+  margin-top: 20px;
   text-align: center;
+  font-size: smaller;
+}
+.userLogged button {
+  margin-top: 5px;
 }
