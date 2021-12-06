@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import styles from "./Login.module.css";
 import { auth } from "../../firebase";
 
@@ -7,10 +11,18 @@ function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const [user, setUser] = useState();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
   // const [registerEmail, setRegisterEmail] = useState();
   // const [registerPassword, setRegisterPassword] = useState();
   // const [loginEmail, setLoginEmail] = useState();
   // const [loginPassword, setLoginPassword] = useState();
+
+  //function thats triggered every time theres a change in auth state
 
   const login = async (e) => {
     e.preventDefault();
@@ -20,8 +32,7 @@ function Login() {
 
   const logout = async (e) => {
     e.preventDefault();
-
-    // auth.signInWithEmailAndPassword(email, password);
+    await signOut(auth);
   };
   const register = async (e) => {
     e.preventDefault();
@@ -82,6 +93,9 @@ function Login() {
               {/* <span className={styles['line1']}></span>or<span className={styles['line1']}> */}
               <div className={styles["register_button"]} onClick={register}>
                 Create Account
+              </div>
+              <div className={styles["userLogged"]}>
+                Logged in as: {user?.email}
               </div>
             </form>
           </div>
