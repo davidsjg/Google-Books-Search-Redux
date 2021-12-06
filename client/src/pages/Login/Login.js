@@ -1,21 +1,43 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase";
 import styles from "./Login.module.css";
+import { auth } from "../../firebase";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const login = (e) => {
+  // const [registerEmail, setRegisterEmail] = useState();
+  // const [registerPassword, setRegisterPassword] = useState();
+  // const [loginEmail, setLoginEmail] = useState();
+  // const [loginPassword, setLoginPassword] = useState();
+
+  const login = async (e) => {
     e.preventDefault();
 
     // auth.signInWithEmailAndPassword(email, password);
   };
-  const register = (e) => {
+
+  const logout = async (e) => {
     e.preventDefault();
-    console.log(email.target.value);
-    console.log(password.target.value);
+
+    // auth.signInWithEmailAndPassword(email, password);
+  };
+  const register = async (e) => {
+    e.preventDefault();
+
+    let tempEmail = email.target.value;
+    let tempPW = password.target.value;
+
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        tempEmail,
+        tempPW
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <>
@@ -55,7 +77,7 @@ function Login() {
                 </div>
               </span>
               <div className={styles["orLine"]}>
-                <span>--------or--------</span>
+                <span style={{}}>--------or--------</span>
               </div>
               {/* <span className={styles['line1']}></span>or<span className={styles['line1']}> */}
               <div className={styles["register_button"]} onClick={register}>
