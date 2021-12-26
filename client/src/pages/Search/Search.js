@@ -29,8 +29,6 @@ function Search() {
 
   return (
     <>
-      <Header />
-      <Hero mainTitle={searchTitleMain} subTitle={searchTitleSub} />
       <Searchbar />
       <Results title={"Results"} />
     </>

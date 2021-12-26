@@ -11,7 +11,7 @@ function Header() {
         </Link>
 
         <span className={styles["search__headerSub"]}>
-          <Link to={"/"}>
+          <Link to={"/search"}>
             <p className={styles["searchButton"]}>Search</p>
           </Link>
           |
