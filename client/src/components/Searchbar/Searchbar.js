@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import styles from "./Searchbar.module.css";
 import axios from "axios";
 import API from "../../uitls/API";
-import { selectBook, setAllBooks } from "../../features/book/bookSlice";
+import {
+  selectBook,
+  setAllBooks,
+  setBook,
+} from "../../features/book/bookSlice";
 import { useNavigate } from "react-router-dom";
 
 function Searchbar() {
@@ -27,11 +31,13 @@ function Searchbar() {
       let tempBookTitle;
       let newArr = [];
 
+      dispatch(setBook(book.data[0]));
+
       console.log(book.data[0]);
       navigate(`/search/${book.data[0].title}`);
     });
 
-    dispatch(setAllBooks(matchArray));
+    // dispatch(setAllBooks(matchArray));
   };
 
   return (
