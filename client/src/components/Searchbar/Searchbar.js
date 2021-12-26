@@ -5,10 +5,12 @@ import styles from "./Searchbar.module.css";
 import axios from "axios";
 import API from "../../uitls/API";
 import { selectBook, setAllBooks } from "../../features/book/bookSlice";
+import { useNavigate } from "react-router-dom";
 
 function Searchbar() {
   const [userBook, setUserBook] = useState();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const currBook = useSelector(selectBook);
 
@@ -25,73 +27,8 @@ function Searchbar() {
       let tempBookTitle;
       let newArr = [];
 
-      console.log(book.data);
-
-      book.data.map((book) => {
-        newArr.push(book.title);
-        // console.log(newArr);
-      });
-      console.log(allBooks);
-      // newArr.map((bookTitle) => {
-      //   // console.log(bookTitle);
-      //   const result = allBooks.find((book) => {
-      //     book.title === bookTitle;
-      //   });
-      //   return result;
-      // });
-
-      // book.data.map((book) => {
-      //   let tempTitle = book.title;
-
-      //   allBooks.find((findBook) => {
-      //     let { title } = findBook;
-      //     console.log(title);
-      //     console.log(tempTitle);
-
-      //     if (title === tempTitle) matchArray.push(book);
-      //   });
-      // });
-
-      // allBooks.map((book) => {
-      //   console.log(book.title);
-      //   tempTitles.push(book.title);
-      // });
-      // console.log(tempTitles);
-
-      // allBooks.map((findBook, index) => {
-      //   tempBookTitle = resTitles[index];
-
-      //   resTitles.find((book) => {});
-      // });
-
-      // res;
-      // resTitles.map((title) => {
-      //   let tempTitle = title.title;
-      //   let tempBookTitle = findBook.title;
-      //   console.log(tempBookTitle);
-      //   console.log(tempTitle);
-      //   // if (findBook.title === temp) matchArray.push(findBook);
-      //   // return matchArray;
-      // });
-
-      // for (let i = 0; i < resTitles.length; i++) {
-      //   let tempTitle = resTitles[i];
-      //   allBooks.map((book) => {
-      //     console.log(book.title);
-      //     console.log(resTitles[i].title);
-      //     {
-      //       if (book.title === resTitles[i].title) matchArray.push(book);
-      //     }
-      //   });
-      // }
-
-      // console.log(title.title);
-
-      // if (title.title === temp.title) {
-      //   matchArray.push(temp);
-      // }
-
-      console.log(matchArray);
+      console.log(book.data[0]);
+      navigate(`/search/${book.data[0].title}`);
     });
 
     dispatch(setAllBooks(matchArray));
@@ -118,3 +55,69 @@ function Searchbar() {
 }
 
 export default Searchbar;
+
+// book.data.map((book) => {
+//   newArr.push(book.title);
+// console.log(newArr);
+// });
+
+// newArr.map((bookTitle) => {
+//   // console.log(bookTitle);
+//   const result = allBooks.find((book) => {
+//     book.title === bookTitle;
+//   });
+//   return result;
+// });
+
+// book.data.map((book) => {
+//   let tempTitle = book.title;
+
+//   allBooks.find((findBook) => {
+//     let { title } = findBook;
+//     console.log(title);
+//     console.log(tempTitle);
+
+//     if (title === tempTitle) matchArray.push(book);
+//   });
+// });
+
+// allBooks.map((book) => {
+//   console.log(book.title);
+//   tempTitles.push(book.title);
+// });
+// console.log(tempTitles);
+
+// allBooks.map((findBook, index) => {
+//   tempBookTitle = resTitles[index];
+
+//   resTitles.find((book) => {});
+// });
+
+// res;
+// resTitles.map((title) => {
+//   let tempTitle = title.title;
+//   let tempBookTitle = findBook.title;
+//   console.log(tempBookTitle);
+//   console.log(tempTitle);
+//   // if (findBook.title === temp) matchArray.push(findBook);
+//   // return matchArray;
+// });
+
+// for (let i = 0; i < resTitles.length; i++) {
+//   let tempTitle = resTitles[i];
+//   allBooks.map((book) => {
+//     console.log(book.title);
+//     console.log(resTitles[i].title);
+//     {
+//       if (book.title === resTitles[i].title) matchArray.push(book);
+//     }
+//   });
+// }
+
+// console.log(title.title);
+
+// if (title.title === temp.title) {
+//   matchArray.push(temp);
+// }
+
+// console.log(matchArray);

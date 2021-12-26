@@ -8,8 +8,6 @@ function Saved() {
   let savedTitleSub = "Search for and Save Books of Interest";
   return (
     <>
-      <Header />
-      <Hero mainTitle={savedTitleMain} subTitle={savedTitleSub} />
       <Results title={"Saved Books"} />
     </>
   );

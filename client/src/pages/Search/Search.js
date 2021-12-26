@@ -7,6 +7,7 @@ import Searchbar from "../../components/Searchbar/Searchbar";
 import Results from "../../components/Results/Results";
 import { selectBook } from "../../features/book/bookSlice";
 import { setAllBooks } from "../../features/book/bookSlice";
+import { Outlet } from "react-router-dom";
 
 function Search() {
   const dispatch = useDispatch();
@@ -30,7 +31,8 @@ function Search() {
   return (
     <>
       <Searchbar />
-      <Results title={"Results"} />
+      <Outlet />
+      {/* <Results title={"Results"} /> */}
     </>
   );
 }

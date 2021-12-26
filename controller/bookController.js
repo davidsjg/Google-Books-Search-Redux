@@ -8,52 +8,54 @@ module.exports = {
   },
   findBook: function (req, res) {
     let searchedBook = req.query.q;
-    let tempArr = searchedBook.split(" ");
-    let tempReg = new RegExp(req.query.q, "i");
-    console.log(tempArr);
 
-    db.Book.aggregate([
-      {
-        $project: {
-          _id: 0,
-          title: 1,
-          new_title: {
-            $split: ["$title", " "],
-          },
-          qty: 1,
-        },
-      },
-      {
-        $unwind: {
-          path: "$new_title",
-        },
-      },
-      {
-        $match: {
-          new_title: "of",
-        },
-      },
-      {
-        $project: {
-          title: 1,
-        },
-      },
-    ])
-
+    db.Book.find({ title: searchedBook })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
-    // db.Book.find({title: { $regex: new RegExp(req.query.q, "i") },)}
-    //   // .aggregate([
-    //   //   { $project: { _id: 0, title: 1 } },
-    //   //   { $split: [title, " "] },
-    //   // ])
-
-    //   // .find({ title: { $in: ["of"] } })
-
-    //   .then((dbModel) => res.json(dbModel))
-    //   .catch((err) => res.status(422).json(err));
   },
 };
+
+// let tempArr = searchedBook.split(" ");
+// let tempReg = new RegExp(req.query.q, "i");
+// console.log(tempArr);
+
+// db.Book.aggregate([
+//   {
+//     $project: {
+//       _id: 0,
+//       title: 1,
+//       new_title: {
+//         $split: ["$title", " "],
+//       },
+//       qty: 1,
+//     },
+//   },
+//   {
+//     $unwind: {
+//       path: "$new_title",
+//     },
+//   },
+//   {
+//     $match: {
+//       new_title: tempArr,
+//     },
+//   },
+// ])
+// }
+//     .then((dbModel) => res.json(dbModel))
+//     .catch((err) => res.status(422).json(err));
+// db.Book.find({title: { $regex: new RegExp(req.query.q, "i") },)}
+//   // .aggregate([
+//   //   { $project: { _id: 0, title: 1 } },
+//   //   { $split: [title, " "] },
+//   // ])
+
+//   // .find({ title: { $in: ["of"] } })
+
+//   .then((dbModel) => res.json(dbModel))
+//   .catch((err) => res.status(422).json(err));
+// },
+// };
 // title: { $regex: new RegExp(req.query.q, "i") },
 
 // { $split: [title, " "] }
