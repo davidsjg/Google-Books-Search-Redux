@@ -10,8 +10,8 @@ import { setAllBooks } from "../../features/book/bookSlice";
 
 function Search() {
   const dispatch = useDispatch();
-  let searchTitleMain = "(React) Google Books Search";
-  let searchTitleSub = "Search for and Save Books of Interest";
+  let searchTitleMain = "(React) Books Search";
+  let searchTitleSub = "Search for and Save Harry Potter Books";
 
   const curBook = useSelector(selectBook);
 
