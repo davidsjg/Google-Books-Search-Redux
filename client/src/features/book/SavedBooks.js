@@ -18,7 +18,7 @@ function SavedBooks() {
 
   return (
     <>
-      {savedBooks.map((book) => {
+      {savedBooks?.map((book) => {
         return (
           <div className={styles["bookResult"]}>
             <div className={styles["bookResult__header"]}>
