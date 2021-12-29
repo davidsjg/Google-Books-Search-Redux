@@ -29,11 +29,21 @@ function Searchbar() {
     API.findBook(userBook).then((book) => {
       let resTitles = book.data;
       let tempBookTitle;
-      let newArr = [];
+      // let newArr = [];
 
-      dispatch(setBook(book.data[0]));
+      console.log(book);
 
-      console.log(book.data[0]);
+      // if (book.data.length > 1) {
+      //   dispatch(setBook(book.data));
+      // } else {
+      //   dispatch(setBook(book.data[0]));
+      // }
+
+      //has to be all four dispatched to setBook
+
+      dispatch(setBook(book.data));
+
+      // console.log(book.data[0]);
       navigate(`/search/${book.data[0].title}`);
     });
 

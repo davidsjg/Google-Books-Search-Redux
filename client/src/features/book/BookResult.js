@@ -8,15 +8,12 @@ import { Link } from "react-router-dom";
 function BookResult() {
   // store, currentState
   const bookState = useSelector(selectBook);
-
+  const dispatch = useDispatch();
   // const {selectedBook}
-
-  console.log(bookState);
-
   const { selectedBook } = bookState;
 
-  // const { book } = bookState;
-  const dispatch = useDispatch();
+  //array of books returned from redux store
+  console.log(selectedBook);
 
   // useEffect(() => {
   //   dispatch(setAllBooks(bookData));
@@ -32,27 +29,34 @@ function BookResult() {
 
   return (
     <>
-      <div className={styles["bookResult"]}>
-        <div className={styles["bookResult__header"]}>
-          <span className={styles["bookResult__span"]}>
-            <h4>{selectedBook.title}</h4>
+      {selectedBook.length > 0
+        ? selectedBook.map((book) => {
+            return (
+              <div className={styles["bookResult"]}>
+                <div className={styles["bookResult__header"]}>
+                  <span className={styles["bookResult__span"]}>
+                    <h4>{book.title}</h4>
 
-            <p>
-              Written by <span>{selectedBook.author}</span>
-            </p>
-          </span>
-          <span className={styles["bookResult__spanButton"]}>
-            <Link to={`/bookDetail/${selectedBook.title}`}>
-              <button onClick={() => newClick(selectedBook)}>View</button>
-            </Link>
-            <button onClick={() => saveClick(selectedBook)}>Save</button>
-          </span>
-        </div>
-        <div className={styles["bookResult__body"]}>
-          <img src={selectedBook.img} alt="" />
-          <p>{selectedBook.description}</p>
-        </div>
-      </div>
+                    <p>
+                      Written by <span>{book.author}</span>
+                    </p>
+                  </span>
+                  <span className={styles["bookResult__spanButton"]}>
+                    <Link to={`/bookDetail/${book.title}`}>
+                      <button onClick={() => newClick(book)}>View</button>
+                    </Link>
+                    <button onClick={() => saveClick(book)}>Save</button>
+                  </span>
+                </div>
+                <div className={styles["bookResult__body"]}>
+                  <img src={book.img} alt="" />
+                  <p>{book.description}</p>
+                </div>
+              </div>
+            );
+          })
+        : console.log("nada")}
+
       {/* {bookState &&
         bookState.map((book) => {
           return (

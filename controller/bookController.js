@@ -9,7 +9,7 @@ module.exports = {
   findBook: function (req, res) {
     let searchedBook = req.query.q;
 
-    db.Book.find({ title: searchedBook })
+    db.Book.find({ title: /.*of.*/ })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
