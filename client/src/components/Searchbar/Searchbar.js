@@ -45,7 +45,7 @@ function Searchbar() {
     <>
       <div className={styles["searchBar"]}>
         <p1>Book Search</p1>
-        <p2>Book:</p2>
+        <p2>Enter Book Title or Partial Book Title:</p2>
         <input
           type="text"
           placeholder="Enter book to search"

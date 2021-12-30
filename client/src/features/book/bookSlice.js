@@ -13,6 +13,7 @@ const initialState = {
   },
   allBooks: bookData,
   savedBooks: [],
+  singleBook: {},
 };
 
 export const bookSlice = createSlice({
@@ -30,7 +31,7 @@ export const bookSlice = createSlice({
       //   description: state.selectedBook.description,
       // };
 
-      state.selectedBook = action.payload;
+      state.singleBook = action.payload;
     },
     setSelectedBooks: (state, action) => {
       // console.log(action.payload);
@@ -40,11 +41,12 @@ export const bookSlice = createSlice({
       // console.log(action.payload);
       state.allBooks = action.payload;
     },
-    setRead: (state) => {
-      state.selectedBook.read = true;
+    setRead: (state, action) => {
+      state.singleBook.read = true;
+      state.savedBooks.push(action.payload);
     },
     setUnread: (state) => {
-      state.selectedBook.read = false;
+      state.singleBook.read = false;
     },
     setSavedBooks: (state, action) => {
       state.savedBooks.push(action.payload);

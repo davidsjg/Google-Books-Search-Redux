@@ -13,18 +13,21 @@ import { useParams, Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
 function BookDetail() {
-  // const { selectedBook } = useSelector(selectBook);
   const { allBooks } = useSelector(selectBook);
   const { selectedBook } = useSelector(selectBook);
+  const { singleBook } = useSelector(selectBook);
+  const { savedBooks } = useSelector(selectBook);
   const dispatch = useDispatch();
   const params = useParams();
 
-  let bookFind;
-  console.log(params);
-  useEffect(() => {
-    bookFind = allBooks.find(({ title }) => title === params.title);
-    dispatch(setBook(bookFind));
-  }, []);
+  console.log(singleBook);
+
+  // let bookFind;
+  // console.log(params);
+  // useEffect(() => {
+  //   bookFind = allBooks.find(({ title }) => title === params.title);
+  //   dispatch(setBook(bookFind));
+  // }, []);
 
   const buttonClick = () => {
     // console.log(selectedBook);
@@ -32,7 +35,18 @@ function BookDetail() {
   };
 
   const hasRead = () => {
-    dispatch(setRead());
+    let bookInSaved = false;
+
+    savedBooks.map((booksSaved) => {
+      if (booksSaved.title === singleBook.title) {
+        bookInSaved = true;
+      }
+      return bookInSaved;
+    });
+
+    console.log(bookInSaved);
+
+    dispatch(setRead(singleBook));
   };
 
   const notRead = () => {
@@ -40,7 +54,20 @@ function BookDetail() {
   };
 
   const addReadList = () => {
-    dispatch(setSavedBooks(selectedBook));
+    let bookInSaved = false;
+
+    savedBooks.map((booksSaved) => {
+      if (booksSaved.title === singleBook.title) {
+        bookInSaved = true;
+      }
+      return bookInSaved;
+    });
+
+    if (!bookInSaved) {
+      dispatch(setSavedBooks(singleBook));
+    } else {
+      return null;
+    }
   };
 
   const handleClick = () => {
@@ -56,21 +83,21 @@ function BookDetail() {
           <Link to={"/"}>
             <button className={styles["returnHome"]}>Return Home</button>
           </Link>
-          <img src={selectedBook.img} alt="" />
-          {selectedBook.read ? (
+          <img src={singleBook.img} alt="" />
+          {singleBook.read ? (
             <div className={styles["displayRead"]}>Read!</div>
           ) : (
             <div className={styles["displayUnread"]}>Need to Read!</div>
           )}
         </span>
 
-        <h3>{selectedBook.title}</h3>
-        <h4>By {selectedBook.author}</h4>
-        <p>{selectedBook.description}</p>
+        <h3>{singleBook.title}</h3>
+        <h4>By {singleBook.author}</h4>
+        <p>{singleBook.description}</p>
         <span>
           <button onClick={addReadList}>Add to Read List</button>
 
-          {selectedBook.read ? (
+          {singleBook.read ? (
             <button onClick={notRead}>Need to Reed!</button>
           ) : (
             <button onClick={hasRead}>Mark as Read!</button>
