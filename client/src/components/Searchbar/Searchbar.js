@@ -19,6 +19,12 @@ function Searchbar() {
   const currBook = useSelector(selectBook);
 
   let { allBooks } = currBook;
+  let allTitles = [];
+  let found = Boolean;
+
+  allBooks?.map((book) => {
+    return allTitles.push(book.title);
+  });
 
   const inputBook = (e) => {};
 
@@ -26,28 +32,45 @@ function Searchbar() {
     // let tempTitle = currBook.title.split(" ");
     let matchArray = [];
 
-    API.findBook(userBook).then((book) => {
-      let resTitles = book.data;
-      let tempBookTitle;
-      // let newArr = [];
+    let title1 = allTitles[0];
 
-      console.log(book);
+    console.log(title1);
 
-      // if (book.data.length > 1) {
-      //   dispatch(setBook(book.data));
-      // } else {
-      //   dispatch(setBook(book.data[0]));
-      // }
+    let filteredStrings = allTitles.filter((title) =>
+      title.toLowerCase().includes(userBook.toLowerCase())
+    );
 
-      //has to be all four dispatched to setBook
+    console.log(filteredStrings);
+    // allTitles.map((title) => {
+    //   found = title.includes(userBook);
+    // });
 
-      dispatch(setBook(book.data));
+    // API.findBook(userBook).then((book) => {
+    //   let resTitles = book.data;
+    //   let tempBookTitle;
+    //   // let newArr = [];
 
-      // console.log(book.data[0]);
-      navigate(`/search/${book.data[0].title}`);
-    });
+    //   console.log(book);
+
+    // if (book.data.length > 1) {
+    //   dispatch(setBook(book.data));
+    // } else {
+    //   dispatch(setBook(book.data[0]));
+    // }
+
+    //has to be all four dispatched to setBook
+
+    // dispatch(setBook(book.data));
+
+    // console.log(book.data[0]);
+    //   navigate(`/search/${book.data[0].title}`);
+    // });
 
     // dispatch(setAllBooks(matchArray));
+  };
+
+  const handleClick = () => {
+    console.log(found);
   };
 
   return (
@@ -65,6 +88,7 @@ function Searchbar() {
         <button className={styles["searchBar__button"]} onClick={searchClick}>
           Search
         </button>
+        <button onClick={handleClick}>sup</button>
       </div>
     </>
   );
