@@ -1,6 +1,12 @@
 import { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectBook, setBook, setAllBooks, saveBook } from "./bookSlice";
+import {
+  selectBook,
+  setBook,
+  setAllBooks,
+  saveBook,
+  setSavedBooks,
+} from "./bookSlice";
 import styles from "./BookResult.module.css";
 
 import { Link } from "react-router-dom";
@@ -24,7 +30,7 @@ function BookResult() {
   }
 
   function saveClick(clickBook) {
-    dispatch(saveBook(clickBook));
+    dispatch(setSavedBooks(clickBook));
   }
 
   return (

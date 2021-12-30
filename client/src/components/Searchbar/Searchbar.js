@@ -21,6 +21,11 @@ function Searchbar() {
 
   let { allBooks } = currBook;
 
+  let { savedBooks } = currBook;
+
+  console.log("saved books below");
+  console.log(savedBooks);
+
   const searchClick = () => {
     // let tempTitle = currBook.title.split(" ");
 
@@ -51,7 +56,7 @@ function Searchbar() {
         <button className={styles["searchBar__button"]} onClick={searchClick}>
           Search
         </button>
-        <button onClick={handleClick}>sup</button>
+        {/* <button onClick={handleClick}>sup</button> */}
       </div>
     </>
   );
