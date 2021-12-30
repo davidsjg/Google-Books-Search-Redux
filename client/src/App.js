@@ -32,7 +32,8 @@ function App() {
                   </main>
                 }
               />
-              <Route path="/search/:book" element={<Results />} />
+              {/* <Route path="/search/:book" element={<Results />} /> */}
+              <Route path="/search/bookResult" element={<Results />} />
             </Route>
 
             <Route path="/saved" element={<Saved />} />

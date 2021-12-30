@@ -19,58 +19,20 @@ function Searchbar() {
   const currBook = useSelector(selectBook);
 
   let { allBooks } = currBook;
-  let allTitles = [];
-  let found = Boolean;
-
-  allBooks?.map((book) => {
-    return allTitles.push(book.title);
-  });
-
-  const inputBook = (e) => {};
 
   const searchClick = () => {
     // let tempTitle = currBook.title.split(" ");
-    let matchArray = [];
 
-    let title1 = allTitles[0];
-
-    console.log(title1);
-
-    let filteredStrings = allTitles.filter((title) =>
-      title.toLowerCase().includes(userBook.toLowerCase())
+    let filteredStrings = allBooks.filter((book) =>
+      book.title.toLowerCase().includes(userBook.toLowerCase())
     );
 
-    console.log(filteredStrings);
-    // allTitles.map((title) => {
-    //   found = title.includes(userBook);
-    // });
-
-    // API.findBook(userBook).then((book) => {
-    //   let resTitles = book.data;
-    //   let tempBookTitle;
-    //   // let newArr = [];
-
-    //   console.log(book);
-
-    // if (book.data.length > 1) {
-    //   dispatch(setBook(book.data));
-    // } else {
-    //   dispatch(setBook(book.data[0]));
-    // }
-
-    //has to be all four dispatched to setBook
-
-    // dispatch(setBook(book.data));
-
-    // console.log(book.data[0]);
-    //   navigate(`/search/${book.data[0].title}`);
-    // });
-
-    // dispatch(setAllBooks(matchArray));
+    dispatch(setBook(filteredStrings));
+    navigate(`/search/bookResult`);
   };
 
   const handleClick = () => {
-    console.log(found);
+    console.log("sup");
   };
 
   return (
