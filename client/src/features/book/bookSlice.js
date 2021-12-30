@@ -32,6 +32,10 @@ export const bookSlice = createSlice({
 
       state.selectedBook = action.payload;
     },
+    setSelectedBooks: (state, action) => {
+      // console.log(action.payload);
+      state.selectedBooks = action.payload;
+    },
     setAllBooks: (state, action) => {
       // console.log(action.payload);
       state.allBooks = action.payload;
@@ -48,8 +52,14 @@ export const bookSlice = createSlice({
   },
 });
 
-export const { setBook, setRead, setAllBooks, setUnread, saveBook } =
-  bookSlice.actions;
+export const {
+  setBook,
+  setRead,
+  setAllBooks,
+  setSelectedBooks,
+  setUnread,
+  saveBook,
+} = bookSlice.actions;
 
 export const selectBook = (state) => state.book;
 

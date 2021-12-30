@@ -8,6 +8,7 @@ import {
   selectBook,
   setAllBooks,
   setBook,
+  setSelectedBooks,
 } from "../../features/book/bookSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -27,12 +28,12 @@ function Searchbar() {
       book.title.toLowerCase().includes(userBook.toLowerCase())
     );
 
-    dispatch(setBook(filteredStrings));
+    dispatch(setSelectedBooks(filteredStrings));
     navigate(`/search/bookResult`);
   };
 
   const handleClick = () => {
-    console.log("sup");
+    console.log(currBook);
   };
 
   return (

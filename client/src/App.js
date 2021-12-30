@@ -33,7 +33,7 @@ function App() {
                 }
               />
               {/* <Route path="/search/:book" element={<Results />} /> */}
-              <Route path="/search/bookResult" element={<Results />} />
+              <Route path="/search/bookResult" element={<Results />}></Route>
             </Route>
 
             <Route path="/saved" element={<Saved />} />
