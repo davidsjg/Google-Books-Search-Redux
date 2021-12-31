@@ -12,6 +12,8 @@ function SavedBooks() {
   const { book } = bookState;
   const dispatch = useDispatch();
 
+  console.log(savedBooks);
+
   function newClick(clickBook) {
     // dispatch(setBook(clickBook));
   }

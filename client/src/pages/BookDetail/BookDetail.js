@@ -19,8 +19,15 @@ function BookDetail() {
   const { savedBooks } = useSelector(selectBook);
   const dispatch = useDispatch();
   const params = useParams();
+  let isSaved;
 
-  console.log(singleBook);
+  let newSavedBook;
+
+  useEffect(() => {
+    savedBooks.map((savedBook) => {
+      if (savedBook.title === selectedBook.title) newSavedBook = savedBook;
+    });
+  }, []);
 
   // let bookFind;
   // console.log(params);
@@ -29,42 +36,69 @@ function BookDetail() {
   //   dispatch(setBook(bookFind));
   // }, []);
 
+  // useEffect(() => {
+  //   savedBooks.map((savedBook) => {
+  //     if (savedBook.title === singleBook.title) {
+  //       console.log(savedBook.title);
+  //       console.log(singleBook.title);
+  //       isSaved = true;
+  //       dispatch(setBook(savedBook));
+  //     }
+  //     return isSaved;
+  //   });
+  // }, []);
+
   const buttonClick = () => {
     // console.log(selectedBook);
     console.log(allBooks);
   };
 
   const hasRead = () => {
-    let bookInSaved = false;
+    let bookInSaved;
 
-    savedBooks.map((booksSaved) => {
-      if (booksSaved.title === singleBook.title) {
-        bookInSaved = true;
-      }
-      return bookInSaved;
-    });
+    savedBooks.length > 0
+      ? savedBooks.map((booksSaved) => {
+          if (booksSaved.title === selectedBook.title) {
+            console.log("book is in saved");
+            bookInSaved = true;
+          }
+          dispatch(setRead(selectedBook));
+          return bookInSaved;
+        })
+      : dispatch(setRead(selectedBook));
 
     console.log(bookInSaved);
 
-    dispatch(setRead(singleBook));
+    if (!bookInSaved) {
+      console.log("book is not in saved");
+      dispatch(setRead(selectedBook));
+      console.log(selectedBook);
+
+      // setNewSaved(selectedBook);
+    }
+  };
+
+  const setNewSaved = (book) => {
+    console.log(selectedBook);
+    dispatch(setSavedBooks(book));
   };
 
   const notRead = () => {
-    dispatch(setUnread());
+    dispatch(setUnread(selectedBook));
   };
 
   const addReadList = () => {
     let bookInSaved = false;
 
     savedBooks.map((booksSaved) => {
-      if (booksSaved.title === singleBook.title) {
+      if (booksSaved.title === selectedBook.title) {
         bookInSaved = true;
       }
       return bookInSaved;
     });
 
     if (!bookInSaved) {
-      dispatch(setSavedBooks(singleBook));
+      dispatch(setSavedBooks(selectedBook));
     } else {
       return null;
     }
@@ -77,27 +111,27 @@ function BookDetail() {
   return (
     <>
       <Header />
-
+      <button onClick={handleClick}>sup yall</button>
       <div className={styles["bookDetail"]}>
         <span className={styles["bookDetail__top"]}>
           <Link to={"/"}>
             <button className={styles["returnHome"]}>Return Home</button>
           </Link>
-          <img src={singleBook.img} alt="" />
-          {singleBook.read ? (
+          <img src={selectedBook.img} alt="" />
+          {selectedBook.read ? (
             <div className={styles["displayRead"]}>Read!</div>
           ) : (
             <div className={styles["displayUnread"]}>Need to Read!</div>
           )}
         </span>
 
-        <h3>{singleBook.title}</h3>
-        <h4>By {singleBook.author}</h4>
-        <p>{singleBook.description}</p>
+        <h3>{selectedBook.title}</h3>
+        <h4>By {selectedBook.author}</h4>
+        <p>{selectedBook.description}</p>
         <span>
           <button onClick={addReadList}>Add to Read List</button>
 
-          {singleBook.read ? (
+          {selectedBook.read ? (
             <button onClick={notRead}>Need to Reed!</button>
           ) : (
             <button onClick={hasRead}>Mark as Read!</button>
