@@ -111,7 +111,6 @@ function BookDetail() {
   return (
     <>
       <Header />
-      <button onClick={handleClick}>sup yall</button>
       <div className={styles["bookDetail"]}>
         <span className={styles["bookDetail__top"]}>
           <Link to={"/"}>
